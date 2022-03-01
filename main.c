@@ -17,6 +17,7 @@ void main(){
   UINT8 currentY = 0;
   UBYTE width = 40;
   UBYTE height = 18;
+  UINT8 i;
 
 // Load background to VRAM
 
@@ -31,21 +32,9 @@ void main(){
 
   set_sprite_data(0, 16, DVD);
 
-  set_sprite_tile(0, 0);
-  set_sprite_tile(1, 1);
-  set_sprite_tile(2, 2);
-  set_sprite_tile(3, 3);
-  set_sprite_tile(4, 4);
-  set_sprite_tile(5, 5);
-  set_sprite_tile(6, 6);
-  set_sprite_tile(7, 7);
-  set_sprite_tile(8, 8);
-  set_sprite_tile(9, 9);
-  set_sprite_tile(10, 10);
-  set_sprite_tile(11, 11);
-  set_sprite_tile(12, 12);
-  set_sprite_tile(13, 13);
-  set_sprite_tile(14, 14);
+  for(i=0; i < 15; ++i){
+    set_sprite_tile(i, i);
+  }
 
   move_sprite(0, 10-3, 30-14);
   move_sprite(1, 18-3, 30-14);
@@ -80,22 +69,9 @@ void main(){
     }
 
 // Move sprites
-
-    scroll_sprite(0,moveX,moveY);
-    scroll_sprite(1,moveX,moveY);
-    scroll_sprite(2,moveX,moveY);
-    scroll_sprite(3,moveX,moveY);
-    scroll_sprite(4,moveX,moveY);
-    scroll_sprite(5,moveX,moveY);
-    scroll_sprite(6,moveX,moveY);
-    scroll_sprite(7,moveX,moveY);
-    scroll_sprite(8,moveX,moveY);
-    scroll_sprite(9,moveX,moveY);
-    scroll_sprite(10,moveX,moveY);
-    scroll_sprite(11,moveX,moveY);
-    scroll_sprite(12,moveX,moveY);
-    scroll_sprite(13,moveX,moveY);
-    scroll_sprite(14,moveX,moveY);
+    for(i=0; i<15; ++i) {
+      scroll_sprite(i,moveX,moveY);
+    }
     currentX+=moveX;
     currentY+=moveY;
     delay(40);
